@@ -128,6 +128,15 @@
 		.snip1361.hover figcaption {
 		  top: 80px;
 		}
+		button{
+			border-radius: 5px;
+			border-color: #5588f8;
+			color: #fff;
+			background: #5588f8;
+		}
+		button:hover{
+			background: #81a7f9;
+		}
 	</style>
 </head>
 <body>
