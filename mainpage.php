@@ -146,17 +146,34 @@
 	<aside>
 		<?php
 		// DB에서 데이터들 배열로 저장
-			$shop = array(
-				array(
-				"name" => 'cat', "photo" => 'cat.jpg', "ins" => 'This is Cat'
-				),
-				array(
-				"name" => 'rabit', "photo" => 'rabit.jpg', "ins" => 'This is Rabit'
-				),
-				array(
-				"name" => 'dog', "photo" => 'dog.jpg', "ins" => 'This is Dog'
-				),
-			);
+			
+
+			$shop = array();
+
+			
+
+
+			$conn = mysqli_connect("localhost","root","","web");
+
+			$select_query = "SELECT smallCategory, pic FROM smallCategory";
+
+			$result_set = mysqli_query($conn, $select_query);
+
+			
+			while ($row = mysqli_fetch_array($result_set)){
+
+				array_push($shop, array(
+					"name" => $row['smallCategory'], "photo" => $row['pic'], "ins" => $row['smallCategory'].'입니다.'
+				));
+
+		
+			}
+
+			mysqli_close($conn);
+
+
+
+
 			shuffle($shop); //배열 무작위로 섞음, 섞은 후 배열 0 ~ 8번까지 9개 출력
 
 			echo "<figure class='snip1361'>
