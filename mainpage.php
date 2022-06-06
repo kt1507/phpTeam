@@ -168,7 +168,7 @@
 			while ($row = mysqli_fetch_array($result_set)){
 
 				array_push($shop, array(
-					"name" => $row['smallCategory'], "photo" => './data/food/'.$row['pic'], "ins" => $row['smallCategory'].'입니다.'
+					"name" => $row['smallCategory'], "photo" => './data/food/'.$row['pic'], "ins" => '오늘은 맛있는 '.$row['smallCategory'].'가 땡깁니다.'
 				));
 
 		

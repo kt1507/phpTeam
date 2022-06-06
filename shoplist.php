@@ -132,7 +132,7 @@
 		while ($row = mysqli_fetch_array($result_set)){
 
 			array_push($shop, array(
-				"name" => $row['name'], "pic" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
+				"name" => $row['name'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 			));
 
 	
@@ -147,7 +147,7 @@
 		foreach ($shop as $value) { ?>
 		<div class="shop">
 			<div class="shopLeft">
-				<img class="shopImage" src="<?php echo $value["pic"] ?>">
+				<img class="shopImage" src="<?php echo $value["photo"] ?>">
 			</div>
 
 			<div class="shopRight">
