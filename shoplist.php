@@ -124,7 +124,7 @@
 
 		$conn = mysqli_connect("localhost","root","","web");
 
-		$select_query = "SELECT name, pic, time, address FROM store";
+		$select_query = "SELECT name, pic, tel, time, address FROM store";
 
 		$result_set = mysqli_query($conn, $select_query);
 
@@ -132,7 +132,7 @@
 		while ($row = mysqli_fetch_array($result_set)){
 
 			array_push($shop, array(
-				"name" => $row['name'], "pic" => './data/store/'.$row['pic'], "time" => $row['time'], "adr" => $row['address']
+				"name" => $row['name'], "pic" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 			));
 
 	
@@ -153,7 +153,9 @@
 			<div class="shopRight">
 				<h2 class="shopInfo"><?php echo $value["name"]?></h2>
 				<hr>
-				<p><?php echo $value["time"] ?></p> <!--한식,분식 등-->
+				<p><?php echo $value["tel"] ?></p> <!--한식,분식 등-->
+				<hr>
+				<p><?php echo $value["time"] ?></p>
 				<hr>
 				<p><?php echo $value["adr"] ?></p>
 			</div>
