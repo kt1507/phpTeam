@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- 생성 시간: 22-06-05 14:58
+-- 생성 시간: 22-06-06 17:19
 -- 서버 버전: 10.4.21-MariaDB
 -- PHP 버전: 8.1.6
 
@@ -93,9 +93,16 @@ CREATE TABLE `store` (
   `tel` text NOT NULL,
   `time` text NOT NULL,
   `address` text NOT NULL,
-  `posX` float NOT NULL,
-  `posY` float NOT NULL
+  `pic` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `store`
+--
+
+INSERT INTO `store` (`name`, `tel`, `time`, `address`, `pic`) VALUES
+('도스마스', '070-4216-9347', '10:00 ~ 22:30', '대전 대덕구 한남로12번길 55 2층', 'dosmas.jpg'),
+('맘스터치', '042-626-9998', '10:00 ~ 21:30', '대전 대덕구 한남로12번길 43', 'momstouch.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
