@@ -183,7 +183,7 @@
 					<figcaption>
 					  <h3>".$shop[$i]["name"]."</h3>
 					  <p>".$shop[$i]["time"]."</p>
-					  <p>".$shop[$i]["address"]."</p>
+					  <p>".$shop[$i]["adr"]."</p>
 					  <p>".$shop[$i]["tel"]."</p>
 					</figcaption>
 					  <a href='shopinfo.php?name=".$shop[$i]["name"]."'></a>
