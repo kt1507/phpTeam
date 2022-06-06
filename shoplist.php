@@ -55,7 +55,7 @@
 			display: flex;
 			font-size: 15px;
 			padding: 10px;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 		}
 		.shopLeft{
 			float: left;
@@ -63,7 +63,7 @@
 		}
 		.shopImage{
 			float: right;
-			height: 150px;
+			height: 170px;
 			width: 230px;
 			margin : 10px;
 		}
@@ -76,11 +76,9 @@
 			float: left;
 			width: 100%;
 			text-align: left;
-			padding-top: 10px;
 			margin: 10px;
 		}
 		h2{
-			padding-top: 20px;
 			font-size: 25px;
 		}
 		hr{
