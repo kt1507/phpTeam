@@ -111,7 +111,7 @@
 	<nav>
 		<a href="mainpage.php">음식 추천!</a> &nbsp;|&nbsp;
 		<a href="mainpage_shop.php">가게 추천!</a> &nbsp;|&nbsp;
-		<a href="foodList">음식 리스트</a>
+		<a href="foodlist.php">음식 리스트</a>
 	</nav>
 
 	<!-- 메인페이지에 DB 배열로 받아오는 부분 그대로 넣으시면 돼요-->
