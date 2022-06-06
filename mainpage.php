@@ -168,13 +168,15 @@
 			while ($row = mysqli_fetch_array($result_set)){
 
 				array_push($shop, array(
-					"name" => $row['smallCategory'], "photo" => './data/'.$row['pic'], "ins" => $row['smallCategory'].'입니다.'
+					"name" => $row['smallCategory'], "photo" => './data/food/'.$row['pic'], "ins" => $row['smallCategory'].'입니다.'
 				));
 
 		
 			}
 
 			mysqli_close($conn);
+
+
 			shuffle($shop); //배열 무작위로 섞음, 섞은 후 배열 0 ~ 8번까지 9개 출력
 
 			echo "<figure class='snip1361'>

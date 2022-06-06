@@ -118,17 +118,27 @@
 
 	<!-- 메인페이지에 DB 배열로 받아오는 부분 그대로 넣으시면 돼요-->
 	<?php
-	$shop = array(
-			array(
-			"name" => 'cat', "photo" => 'cat.jpg', "ins" => 'This is Cat'
-			),
-			array(
-			"name" => 'rabit', "photo" => 'rabit.jpg', "ins" => 'This is Rabit'
-			),
-			array(
-			"name" => 'dog', "photo" => 'dog.jpg', "ins" => 'This is Dog'
-			),
-		);
+
+
+		$shop = array();
+
+		$conn = mysqli_connect("localhost","root","","web");
+
+		$select_query = "SELECT name, pic, time, address FROM store";
+
+		$result_set = mysqli_query($conn, $select_query);
+
+		
+		while ($row = mysqli_fetch_array($result_set)){
+
+			array_push($shop, array(
+				"name" => $row['name'], "pic" => './data/store/'.$row['pic'], "time" => $row['time'], "adr" => $row['address']
+			));
+
+	
+		}
+
+		mysqli_close($conn);
 
 		sort($shop); // 배열 정렬
 		?>
@@ -137,15 +147,15 @@
 		foreach ($shop as $value) { ?>
 		<div class="shop">
 			<div class="shopLeft">
-				<img class="shopImage" src="<?php echo $value["photo"] ?>">
+				<img class="shopImage" src="<?php echo $value["pic"] ?>">
 			</div>
 
 			<div class="shopRight">
 				<h2 class="shopInfo"><?php echo $value["name"]?></h2>
 				<hr>
-				<p><?php echo $value["ins"] ?></p> <!--한식,분식 등-->
+				<p><?php echo $value["time"] ?></p> <!--한식,분식 등-->
 				<hr>
-				<p>대전 동구 오정동 어디어디 123-4</p>
+				<p><?php echo $value["adr"] ?></p>
 			</div>
 		</div>
 		<?php  }?>
