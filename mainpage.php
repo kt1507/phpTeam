@@ -148,14 +148,13 @@
 	<!-- 메뉴 네비게이션-->
 	<nav>
 		<a href="shoplist.php">가게 리스트</a> &nbsp;|&nbsp;
-		<a href="foodList">음식 리스트</a>
+		<a href="foodlist.php">음식 리스트</a>
 	</nav>
 
 	<!-- 메인 내용 들어갈 aside-->
 	<aside>
 		<?php
 		// DB에서 데이터들 배열로 저장
-
 			$shop = array();
 
 			$conn = mysqli_connect("localhost","root","","web");
@@ -168,7 +167,7 @@
 			while ($row = mysqli_fetch_array($result_set)){
 
 				array_push($shop, array(
-					"name" => $row['smallCategory'], "photo" => './data/food/'.$row['pic'], "ins" => '오늘은 맛있는 '.$row['smallCategory'].'(이/가) 땡깁니다.'
+					"name" => $row['smallCategory'], "photo" => './data/food/'.$row['pic'], "ins" => '오늘은 맛있는 '.$row['smallCategory'].'가 땡깁니다.'
 				));
 
 		
@@ -176,88 +175,22 @@
 
 			mysqli_close($conn);
 
-
 			shuffle($shop); //배열 무작위로 섞음, 섞은 후 배열 0 ~ 8번까지 9개 출력
 
-			echo "<figure class='snip1361'>
-					<img src='".$shop[0]["photo"]."' />
+			for($i=0; $i<9; $i++){
+				echo "<figure class='snip1361'>
+					<img src='".$shop[$i]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[0]["name"]."</h3>
-					  <p>".$shop[0]["ins"]."</p>
+					  <h3>".$shop[$i]["name"]."</h3>
+					  <p>".$shop[$i]["ins"]."</p>
 					</figcaption>
-					  <a href='shopinfo.php?name=".$shop[0]["name"]."'></a>
-				</figure>";
-			echo "<figure class='snip1361'>
-					<img src='".$shop[1]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[1]["name"]."</h3>
-					  <p>".$shop[1]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-			echo "<figure class='snip1361'>
-					<img src='".$shop[2]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[2]["name"]."</h3>
-					  <p>".$shop[2]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
+					  <a href='foodlist.php#".$shop[$i]["name"]."'></a>
 				</figure>";
 
-			echo "<br>";
-
-			echo "<figure class='snip1361'>
-					<img src='".$shop[3]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[3]["name"]."</h3>
-					  <p>".$shop[3]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-			echo "<figure class='snip1361'>
-					<img src='".$shop[4]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[4]["name"]."</h3>
-					  <p>".$shop[4]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-			echo "<figure class='snip1361'>
-					<img src='".$shop[5]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[5]["name"]."</h3>
-					  <p>".$shop[5]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-
-			echo "<br>";
-
-			echo "<figure class='snip1361'>
-					<img src='".$shop[6]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[6]["name"]."</h3>
-					  <p>".$shop[6]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-			echo "<figure class='snip1361'>
-					<img src='".$shop[7]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[7]["name"]."</h3>
-					  <p>".$shop[7]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-			echo "<figure class='snip1361'>
-					<img src='".$shop[8]["photo"]."' />
-					<figcaption>
-					  <h3>".$shop[8]["name"]."</h3>
-					  <p>".$shop[8]["ins"]."</p>
-					</figcaption>
-					  <a href='#'></a>
-				</figure>";
-			echo "<br>";
+				if(($i+1)%3 == 0){
+					echo "<br>";
+				}
+			}
 		?>
 		<br>
 		<button type="button" onClick="location.href='mainpage_shop.php'">가게 추천!</button>
