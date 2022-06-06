@@ -155,26 +155,17 @@
 	<aside>
 		<?php
 		// DB에서 데이터들 배열로 저장
-
-			$shop = array();
-
-			$conn = mysqli_connect("localhost","root","","web");
-
-			$select_query = "SELECT smallCategory, pic FROM smallCategory";
-
-			$result_set = mysqli_query($conn, $select_query);
-
-			
-			while ($row = mysqli_fetch_array($result_set)){
-
-				array_push($shop, array(
-					"name" => $row['smallCategory'], "photo" => './data/'.$row['pic'], "ins" => $row['smallCategory'].'입니다.'
-				));
-
-		
-			}
-
-			mysqli_close($conn);
+			$shop = array(
+				array(
+				"name" => 'cat', "photo" => 'cat.jpg', "ins" => 'This is Cat'
+				),
+				array(
+				"name" => 'rabit', "photo" => 'rabit.jpg', "ins" => 'This is Rabit'
+				),
+				array(
+				"name" => 'dog', "photo" => 'dog.jpg', "ins" => 'This is Dog'
+				),
+			);
 			shuffle($shop); //배열 무작위로 섞음, 섞은 후 배열 0 ~ 8번까지 9개 출력
 
 			echo "<figure class='snip1361'>
@@ -205,26 +196,26 @@
 			echo "<br>";
 
 			echo "<figure class='snip1361'>
-					<img src='".$shop[3]["photo"]."' />
+					<img src='".$shop[1]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[3]["name"]."</h3>
-					  <p>".$shop[3]["ins"]."</p>
+					  <h3>".$shop[1]["name"]."</h3>
+					  <p>".$shop[1]["ins"]."</p>
 					</figcaption>
 					  <a href='#'></a>
 				</figure>";
 			echo "<figure class='snip1361'>
-					<img src='".$shop[4]["photo"]."' />
+					<img src='".$shop[2]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[4]["name"]."</h3>
-					  <p>".$shop[4]["ins"]."</p>
+					  <h3>".$shop[2]["name"]."</h3>
+					  <p>".$shop[2]["ins"]."</p>
 					</figcaption>
 					  <a href='#'></a>
 				</figure>";
 			echo "<figure class='snip1361'>
-					<img src='".$shop[5]["photo"]."' />
+					<img src='".$shop[0]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[5]["name"]."</h3>
-					  <p>".$shop[5]["ins"]."</p>
+					  <h3>".$shop[0]["name"]."</h3>
+					  <p>".$shop[0]["ins"]."</p>
 					</figcaption>
 					  <a href='#'></a>
 				</figure>";
@@ -232,33 +223,33 @@
 			echo "<br>";
 
 			echo "<figure class='snip1361'>
-					<img src='".$shop[6]["photo"]."' />
+					<img src='".$shop[2]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[6]["name"]."</h3>
-					  <p>".$shop[6]["ins"]."</p>
+					  <h3>".$shop[2]["name"]."</h3>
+					  <p>".$shop[2]["ins"]."</p>
 					</figcaption>
 					  <a href='#'></a>
 				</figure>";
 			echo "<figure class='snip1361'>
-					<img src='".$shop[7]["photo"]."' />
+					<img src='".$shop[0]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[7]["name"]."</h3>
-					  <p>".$shop[7]["ins"]."</p>
+					  <h3>".$shop[0]["name"]."</h3>
+					  <p>".$shop[0]["ins"]."</p>
 					</figcaption>
 					  <a href='#'></a>
 				</figure>";
 			echo "<figure class='snip1361'>
-					<img src='".$shop[8]["photo"]."' />
+					<img src='".$shop[1]["photo"]."' />
 					<figcaption>
-					  <h3>".$shop[8]["name"]."</h3>
-					  <p>".$shop[8]["ins"]."</p>
+					  <h3>".$shop[1]["name"]."</h3>
+					  <p>".$shop[1]["ins"]."</p>
 					</figcaption>
 					  <a href='#'></a>
 				</figure>";
 			echo "<br>";
 		?>
 		<br>
-		<button type="button" onClick="location.href='mainpage_shop.php'">가게 추천!</button>
+		<button type="button" onClick="location.href='mainpage.php'">음식 추천!</button>
 		<button type="button" onClick="window.location.reload()">새로고침</button>
 	</aside>
 

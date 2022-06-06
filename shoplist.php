@@ -50,11 +50,12 @@
 		}
 		.shop{
 			width: 800px;
-			height: 300px;
+			height: 150px;
 			margin: 0 auto;
 			display: flex;
 			font-size: 15px;
 			padding: 10px;
+			margin-bottom: 10px;
 		}
 		.shopLeft{
 			float: left;
@@ -62,14 +63,14 @@
 		}
 		.shopImage{
 			float: right;
-			height: 300px;
-			width: 400px;
+			height: 150px;
+			width: 230px;
 			margin : 10px;
 		}
 		.shopRight{
 			float: right;
 			width: 40%;
-			padding-left: 30px;
+			padding-left: 15px;
 		}
 		.shopInfo{
 			float: left;
@@ -79,10 +80,6 @@
 			margin: 10px;
 		}
 		h2{
-			padding-top: 20px;
-			font-size: 35px;
-		}
-		h3{
 			padding-top: 20px;
 			font-size: 25px;
 		}
@@ -104,33 +101,6 @@
 			float: left;
 			margin: 0 auto;
 		}
-		.menu{
-			width: 800px;
-			height: 200px;
-			margin: 0 auto;
-		}
-		.menuLeft{
-			float: left;
-			width: 40%;
-		}
-		.menuImage{
-			float: right;
-			height: 150px;
-			width: 230px;
-			margin : 10px 20px 0 0;
-			padding-right: 10px;
-		}
-		.menuRight{
-			float: right;
-			width: 60%;
-		}
-		.menuInfo{
-			float: left;
-			width: 100%;
-			text-align: left;
-			padding: 30px 0 10px 0;
-			margin: 10px;
-		}
 	</style>
 </head>
 <body>
@@ -141,10 +111,12 @@
 
 	<!-- 메뉴 네비게이션-->
 	<nav>
-		<a href="shoplist.php">가게 리스트</a> &nbsp;|&nbsp;
+		<a href="mainpage.php">음식 추천!</a> &nbsp;|&nbsp;
+		<a href="mainpage_shop.php">가게 추천!</a> &nbsp;|&nbsp;
 		<a href="foodList">음식 리스트</a>
 	</nav>
 
+	<!-- 메인페이지에 DB 배열로 받아오는 부분 그대로 넣으시면 돼요-->
 	<?php
 	$shop = array(
 			array(
@@ -157,49 +129,26 @@
 			"name" => 'dog', "photo" => 'dog.jpg', "ins" => 'This is Dog'
 			),
 		);
+
+		sort($shop); // 배열 정렬
 		?>
-	<?php
-		$getName = $_GET["name"];
-		$getValue = 0;
-		$findValue = 0;
-		foreach ($shop as $value) {
-			if($getName == $value["name"]){
-				$getValue = $findValue;
-			}
-			$findValue += 1;
-		}
-	?>
 	<aside> <!-- 가게 사진 및 정보-->
+		<?php 
+		foreach ($shop as $value) { ?>
 		<div class="shop">
 			<div class="shopLeft">
-				<img class="shopImage" src="<?php echo $shop[$getValue]["photo"] ?>">
+				<img class="shopImage" src="<?php echo $value["photo"] ?>">
 			</div>
 
 			<div class="shopRight">
-				<h2 class="shopInfo"><?php echo $shop[$getValue]["name"]?></h2>
+				<h2 class="shopInfo"><?php echo $value["name"]?></h2>
 				<hr>
-				<p><?php echo $shop[$getValue]["ins"] ?></p>
-				<hr>
-				<p>042-123-4567</p>
+				<p><?php echo $value["ins"] ?></p> <!--한식,분식 등-->
 				<hr>
 				<p>대전 동구 오정동 어디어디 123-4</p>
 			</div>
 		</div>
-
-	</aside>
-
-	<aside> <!-- 가게 메뉴들-->
-		<div class="menu">
-			<hr>
-			<div class="menuLeft">
-				<img class="menuImage" src="<?php echo $shop[$getValue]["photo"] ?>" alt="아직 이미지가 없어요"/>
-			</div>
-
-			<div class="menuRight">
-				<h3 class="menuInfo"><?php echo $shop[$getValue]["name"]?></h3>
-				<p>5,000원</p>
-			</div>
-		</div>
+		<?php  }?>
 	</aside>
 
 	<footer>
