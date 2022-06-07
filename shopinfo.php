@@ -163,7 +163,13 @@
 				"name" => $row['store'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 			));
 
-	
+		$select_query = "SELECT store, name_food, price_food, pic_food FROM food_store";
+		$result_set = mysqli_query($conn, $select_query);
+
+		while ($row = mysqli_fetch_array($result_set)){
+			array_push($shop_menu, array(
+				"name" => $row['store'], "photo" => './data/food_store/'.$row['pic_food'], "menu_name" => $row['name_food'], "price" => $row['price_food']
+			));
 		}
 	?>
 
@@ -198,17 +204,23 @@
 	</aside>
 
 	<aside> <!-- 가게 메뉴들-->
-		<div class="menu">
-			<hr>
-			<div class="menuLeft">
-				<img class="menuImage" src="<?php echo $shop[$getValue]["photo"] ?>" alt="아직 이미지가 없어요"/>
-			</div>
+		<?php 
+		foreach($shop_menu as $value) { 
+			if($value == $shop[$getValue]["name"]){ ?>
+				<div class="menu">
+					<hr>
+					<div class="menuLeft">
+						<img class="menuImage" src="<?php echo $shop_menu[$value]["photo"] ?>" alt="아직 이미지가 없어요"/>
+					</div>
 
-			<div class="menuRight">
-				<h3 class="menuInfo"><?php echo $shop[$getValue]["name"]?></h3>
-				<p>5,000원</p>
-			</div>
-		</div>
+					<div class="menuRight">
+						<h3 class="menuInfo"><?php echo $shop_menu[$value]["menu_name"]?></h3>
+						<p><?php echo $shop_menu[$value]["price"] ?></p>
+					</div>
+				</div>
+		<?php  
+			}
+		}?>
 	</aside>
 
 	<footer>
