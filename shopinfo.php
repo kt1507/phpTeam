@@ -149,8 +149,24 @@
 		
 
 		$shop = array();
-	?>
+
+		$conn = mysqli_connect("localhost","root","","web");
+
+		$select_query = "SELECT store, pic, tel, time, address FROM store";
+
+		$result_set = mysqli_query($conn, $select_query);
+
+		
+		while ($row = mysqli_fetch_array($result_set)){
+
+			array_push($shop, array(
+				"name" => $row['store'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
+			));
+
 	
+		}
+	?>
+
 	<?php
 		$getName = $_GET["name"];
 		$getValue = 0;
@@ -171,11 +187,11 @@
 			<div class="shopRight">
 				<h2 class="shopInfo"><?php echo $shop[$getValue]["name"]?></h2>
 				<hr>
-				<p><?php echo $shop[$getValue]["ins"] ?></p>
+				<p><?php echo $value["tel"] ?></p>
 				<hr>
-				<p>fsdf</p>
+				<p><?php echo $value["time"] ?></p>
 				<hr>
-				<p>대전 동구 오정동 어디어디 123-4</p>
+				<p><?php echo $value["adr"] ?></p>
 			</div>
 		</div>
 

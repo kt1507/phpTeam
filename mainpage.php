@@ -159,7 +159,7 @@
 
 			$conn = mysqli_connect("localhost","root","","web");
 
-			$select_query = "SELECT smallCategory, pic FROM smallCategory";
+			$select_query = "SELECT category, pic FROM category";
 
 			$result_set = mysqli_query($conn, $select_query);
 
@@ -167,7 +167,7 @@
 			while ($row = mysqli_fetch_array($result_set)){
 
 				array_push($shop, array(
-					"name" => $row['smallCategory'], "photo" => './data/food/'.$row['pic'], "ins" => '오늘은 맛있는 '.$row['smallCategory'].'(이/가) 땡깁니다.'
+					"name" => $row['category'], "photo" => './data/food/'.$row['pic'], "ins" => '오늘은 맛있는 '.$row['category'].'(이/가) 땡깁니다.'
 				));
 
 		

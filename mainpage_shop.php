@@ -159,7 +159,7 @@
 
 			$conn = mysqli_connect("localhost","root","","web");
 	
-			$select_query = "SELECT name, pic, tel, time, address FROM store";
+			$select_query = "SELECT store, pic, tel, time, address FROM store";
 	
 			$result_set = mysqli_query($conn, $select_query);
 	
@@ -167,7 +167,7 @@
 			while ($row = mysqli_fetch_array($result_set)){
 	
 				array_push($shop, array(
-					"name" => $row['name'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
+					"name" => $row['store'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 				));
 	
 		

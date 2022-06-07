@@ -71,7 +71,7 @@
 			
 		$conn = mysqli_connect("localhost","root","","web");
 
-		$select_query = "SELECT name_category, name_store, name_food, price_food, pic_food FROM food_store";
+		$select_query = "SELECT category, store FROM store_category";
 
 		$result_set = mysqli_query($conn, $select_query);
 
@@ -79,7 +79,7 @@
 		while ($row = mysqli_fetch_array($result_set)){
 
 			array_push($menu, array(
-				"category" => $row['name_category'],"shopname" => $row['name_store']
+				"category" => $row['category'],"shopname" => $row['store']
 			));
 
 	
