@@ -163,11 +163,14 @@
 				"name" => $row['store'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 			));
 		}
-		
+		$select_query = "SELECT store, name_food, price_food, pic_food FROM food_store";
+		$result_set = mysqli_query($conn, $select_query);
 
-		mysqli_close($conn);
-
-		sort($shop); // 배열 정렬
+		while ($row = mysqli_fetch_array($result_set)){
+			array_push($shop_menu, array(
+				"name" => $row['store'], "photo" => './data/food_store/'.$row['pic_food'], "menu_name" => $row['name_food'], "price" => $row['price_food']
+			));
+		}
 	?>
 
 	<?php
@@ -202,6 +205,7 @@
 
 	<aside> <!-- 가게 메뉴들-->
 		<?php 
+<<<<<<< HEAD
 
 		$shop_menu = array();
 
@@ -225,17 +229,19 @@
 
 		sort($shop_menu);
 
+=======
+>>>>>>> 44084f8aa351847c75ec0cc40f33cb3617443122
 		foreach($shop_menu as $value) { 
-			if($value == $shop[$getValue]["name"]){ ?>
+			if($value["name"] == $shop[$getValue]["name"]){ ?>
 				<div class="menu">
 					<hr>
 					<div class="menuLeft">
-						<img class="menuImage" src="<?php echo $shop_menu[$value]["photo"] ?>" alt="아직 이미지가 없어요"/>
+						<img class="menuImage" src="<?php echo $value["photo"] ?>" alt="아직 이미지가 없어요"/>
 					</div>
 
 					<div class="menuRight">
-						<h3 class="menuInfo"><?php echo $shop_menu[$value]["menu_name"]?></h3>
-						<p><?php echo $shop_menu[$value]["price"] ?></p>
+						<h3 class="menuInfo"><?php echo $value["menu_name"]?></h3>
+						<p><?php echo $value["price"] ?></p>
 					</div>
 				</div>
 		<?php  
