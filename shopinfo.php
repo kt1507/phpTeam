@@ -142,7 +142,7 @@
 	<!-- 메뉴 네비게이션-->
 	<nav>
 		<a href="shoplist.php">가게 리스트</a> &nbsp;|&nbsp;
-		<a href="foodList">음식 리스트</a>
+		<a href="foodlist.php">음식 리스트</a>
 	</nav>
 
 	<?php
