@@ -66,58 +66,28 @@
 
 	<!-- 메인페이지에 DB 배열로 받아오는 부분 그대로 넣으시면 돼요-->
 	<?php
-	$menu = array(
-			array(
-			"category" => 'cat', "shopname" => '고양이'),
-			array(
-			"category" => 'cat', "shopname" => 'cat'),
-			array(
-			"category" => 'cat', "shopname" => '고양이?'),
-			array(
-			"category" => 'rabit', "shopname" => '토끼'),
-			array(
-			"category" => 'rabit', "shopname" => 'rabit'),
-			array(
-			"category" => 'dog', "shopname" => '개'),
-			array(
-			"category" => 'dog', "shopname" => 'dog'),
-			array(
-			"category" => 'a', "shopname" => '에이'),
-			array(
-			"category" => 'b', "shopname" => '비'),
-			array(
-			"category" => 'c', "shopname" => '씨'),
-			array(
-			"category" => 'd', "shopname" => '디'),
-			array(
-			"category" => 'e', "shopname" => '이'),
-			array(
-			"category" => 'f', "shopname" => '에프'),
-			array(
-			"category" => 'g', "shopname" => '쥐'),
-			array(
-			"category" => 'h', "shopname" => '에이치'),
-			array(
-			"category" => 'i', "shopname" => '아이'),
-			array(
-			"category" => 'j', "shopname" => '제이'),
-			array(
-			"category" => 'k', "shopname" => '케이'),
-			array(
-			"category" => 'l', "shopname" => '엘'),
-			array(
-			"category" => 'm', "shopname" => '엠'),
-			array(
-			"category" => 'n', "shopname" => '엔'),
-			array(
-			"category" => 'o', "shopname" => '오'),
-			array(
-			"category" => 'p', "shopname" => '피'),
-			array(
-			"category" => 'q', "shopname" => '큐'),
-			array(
-			"category" => 'r', "shopname" => '알'),
-		);
+		$menu = array();
+
+			
+		$conn = mysqli_connect("localhost","root","","web");
+
+		$select_query = "SELECT name_category, name_store, name_food, price_food, pic_food FROM food_store";
+
+		$result_set = mysqli_query($conn, $select_query);
+
+		
+		while ($row = mysqli_fetch_array($result_set)){
+
+			array_push($menu, array(
+				"category" => $row['name_category'],"shopname" => $row['name_store']
+			));
+
+	
+		}
+
+		mysqli_close($conn);
+
+
 
 		sort($menu); // 배열 정렬
 		?>
