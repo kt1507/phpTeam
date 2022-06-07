@@ -163,14 +163,11 @@
 				"name" => $row['store'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 			));
 		}
-		$select_query = "SELECT store, name_food, price_food, pic_food FROM food_store";
-		$result_set = mysqli_query($conn, $select_query);
+		
 
-		while ($row = mysqli_fetch_array($result_set)){
-			array_push($shop_menu, array(
-				"name" => $row['store'], "photo" => './data/food_store/'.$row['pic_food'], "menu_name" => $row['name_food'], "price" => $row['price_food']
-			));
-		}
+		mysqli_close($conn);
+
+		sort($shop); // 배열 정렬
 	?>
 
 	<?php
@@ -205,6 +202,29 @@
 
 	<aside> <!-- 가게 메뉴들-->
 		<?php 
+
+		$shop_menu = array();
+
+		$conn = mysqli_connect("localhost","root","","web");
+
+		$select_query = "SELECT store, name_food, price_food, pic_food FROM food_store";
+
+		$result_set = mysqli_query($conn, $select_query);
+
+
+		while ($row = mysqli_fetch_array($result_set)){
+
+			array_push($shop_menu, array(
+				"menu_name" => $row['store'], "price" => $row['price_food'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
+			));
+
+
+		}
+
+		mysqli_close($conn);
+
+		sort($shop_menu);
+
 		foreach($shop_menu as $value) { 
 			if($value == $shop[$getValue]["name"]){ ?>
 				<div class="menu">
