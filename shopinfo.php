@@ -162,7 +162,7 @@
 			array_push($shop, array(
 				"name" => $row['store'], "photo" => './data/store/'.$row['pic'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
 			));
-
+		}
 		$select_query = "SELECT store, name_food, price_food, pic_food FROM food_store";
 		$result_set = mysqli_query($conn, $select_query);
 
