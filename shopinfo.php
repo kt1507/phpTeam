@@ -169,7 +169,7 @@
 
 		while ($row = mysqli_fetch_array($result_set)){
 			array_push($shop_menu, array(
-				"name" => $row['store'], "photo" => './data/food_store/'.$row['pic_food'], "menu_name" => $row['name_food'], "price" => $row['price_food']
+				"name" => $row['store'], "photo" => './data/menu/'.$row['pic_food'], "menu_name" => $row['name_food'], "price" => $row['price_food']
 			));
 		}
 	?>
