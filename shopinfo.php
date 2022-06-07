@@ -149,6 +149,7 @@
 		
 
 		$shop = array();
+		$shop_menu = array();
 
 		$conn = mysqli_connect("localhost","root","","web");
 
@@ -205,32 +206,6 @@
 
 	<aside> <!-- 가게 메뉴들-->
 		<?php 
-<<<<<<< HEAD
-
-		$shop_menu = array();
-
-		$conn = mysqli_connect("localhost","root","","web");
-
-		$select_query = "SELECT store, name_food, price_food, pic_food FROM food_store";
-
-		$result_set = mysqli_query($conn, $select_query);
-
-
-		while ($row = mysqli_fetch_array($result_set)){
-
-			array_push($shop_menu, array(
-				"menu_name" => $row['store'], "price" => $row['price_food']
-			));
-
-
-		}
-
-		mysqli_close($conn);
-
-		sort($shop_menu);
-
-=======
->>>>>>> 44084f8aa351847c75ec0cc40f33cb3617443122
 		foreach($shop_menu as $value) { 
 			if($value["name"] == $shop[$getValue]["name"]){ ?>
 				<div class="menu">
