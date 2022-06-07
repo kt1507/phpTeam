@@ -215,7 +215,7 @@
 		while ($row = mysqli_fetch_array($result_set)){
 
 			array_push($shop_menu, array(
-				"menu_name" => $row['store'], "price" => $row['price_food'], "tel" => $row['tel'], "time" => $row['time'], "adr" => $row['address']
+				"menu_name" => $row['store'], "price" => $row['price_food']
 			));
 
 
