@@ -146,18 +146,11 @@
 	</nav>
 
 	<?php
-	$shop = array(
-			array(
-			"name" => 'cat', "photo" => 'cat.jpg', "ins" => 'This is Cat'
-			),
-			array(
-			"name" => 'rabit', "photo" => 'rabit.jpg', "ins" => 'This is Rabit'
-			),
-			array(
-			"name" => 'dog', "photo" => 'dog.jpg', "ins" => 'This is Dog'
-			),
-		);
-		?>
+		
+
+		$shop = array();
+	?>
+	
 	<?php
 		$getName = $_GET["name"];
 		$getValue = 0;
@@ -180,7 +173,7 @@
 				<hr>
 				<p><?php echo $shop[$getValue]["ins"] ?></p>
 				<hr>
-				<p>042-123-4567</p>
+				<p>fsdf</p>
 				<hr>
 				<p>대전 동구 오정동 어디어디 123-4</p>
 			</div>

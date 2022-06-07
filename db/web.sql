@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- 생성 시간: 22-06-06 19:21
+-- 생성 시간: 22-06-07 06:03
 -- 서버 버전: 10.4.21-MariaDB
 -- PHP 버전: 8.1.6
 
@@ -24,40 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 테이블 구조 `bigCategory`
+-- 테이블 구조 `food_store`
 --
 
-CREATE TABLE `bigCategory` (
-  `bigCategory` text NOT NULL
+CREATE TABLE `food_store` (
+  `name_store` text NOT NULL,
+  `name_food` text NOT NULL,
+  `price_food` int(11) NOT NULL,
+  `pic_food` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 테이블의 덤프 데이터 `bigCategory`
---
-
-INSERT INTO `bigCategory` (`bigCategory`) VALUES
-('음식점'),
-('술집');
-
--- --------------------------------------------------------
-
---
--- 테이블 구조 `food`
---
-
-CREATE TABLE `food` (
-  `menu` text NOT NULL,
-  `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- 테이블의 덤프 데이터 `food`
---
-
-INSERT INTO `food` (`menu`, `price`) VALUES
-('햄버거', 5200),
-('육회비빔밥', 8500),
-('국밥', 7500);
 
 -- --------------------------------------------------------
 
@@ -67,7 +42,8 @@ INSERT INTO `food` (`menu`, `price`) VALUES
 
 CREATE TABLE `smallCategory` (
   `smallCategory` text NOT NULL,
-  `pic` text DEFAULT NULL
+  `pic` text DEFAULT NULL,
+  PRIMATY_KEY (smallCategory)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
