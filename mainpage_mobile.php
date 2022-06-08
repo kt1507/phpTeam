@@ -14,8 +14,8 @@
 
 	<!-- 메뉴 네비게이션-->
 	<nav>
-		<a href="shoplist.php">가게 리스트</a> &nbsp;|&nbsp;
-		<a href="foodlist.php">음식 리스트</a>
+		<a href="shoplist_mobile.php">가게 리스트</a> &nbsp;|&nbsp;
+		<a href="foodlist_mobile.php">음식 리스트</a>
 	</nav>
 
 	<!-- 메인 내용 들어갈 aside-->
@@ -56,7 +56,7 @@
 					  <h3>".$shop[$i]["name"]."</h3>
 					  <p>".$shop[$i]["ins"]."</p>
 					</figcaption>
-					  <a href='foodlist.php#".$shop[$i]["name"]."'></a>
+					  <a href='foodlist_mobile.php#".$shop[$i]["name"]."'></a>
 				</figure>";
 
 				echo "<br>";
