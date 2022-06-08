@@ -194,11 +194,11 @@
 			<div class="shopRight">
 				<h2 class="shopInfo"><?php echo $shop[$getValue]["name"]?></h2>
 				<hr>
-				<p><?php echo $value["tel"] ?></p>
+				<p><?php echo $shop[$getValue]["tel"]?></p>
 				<hr>
-				<p><?php echo $value["time"] ?></p>
+				<p><?php echo $shop[$getValue]["time"]?></p>
 				<hr>
-				<p><?php echo $value["adr"] ?></p>
+				<p><?php echo $shop[$getValue]["adr"]?></p>
 			</div>
 		</div>
 
