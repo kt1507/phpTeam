@@ -60,7 +60,7 @@
 				 ?>
 				<ul>
 					<li>
-						<a href='shopinfo.php?name=<?php echo $value["shopname"]; ?>'><?php echo $value["shopname"]; ?></a>
+						<a href='shopinfo_mobile.php?name=<?php echo $value["shopname"]; ?>'><?php echo $value["shopname"]; ?></a>
 					</li>
 				</ul>
 			</li>

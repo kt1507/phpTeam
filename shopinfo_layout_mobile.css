@@ -43,7 +43,7 @@
 			color: inherit; /* 링크 색상 제거*/
 		}
 		.shop{
-			width: 90%;
+			width: 100%;
 			height: 150px;
 			margin: 0 auto;
 			display: flex;
@@ -63,6 +63,7 @@
 		.shopRight{
 			float: right;
 			width: 50%;
+			max-width: 200px;
 			padding-left: 10px;
 		}
 		.shopInfo{
@@ -100,7 +101,8 @@
 			margin: 0 auto;
 		}
 		.menu{
-			width: 400px;
+			width: 100%;
+			max-width: 400px;
 			height: 150px;
 			margin: 0 auto;
 		}

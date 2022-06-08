@@ -48,7 +48,7 @@
 	<aside> <!-- 가게 사진 및 정보-->
 		<?php 
 		foreach ($shop as $value) { ?>
-		<a href="shopinfo.php?name=<?php echo $value["name"] ?>">
+		<a href="shopinfo_mobile.php?name=<?php echo $value["name"] ?>">
 		<div class="shop">
 			<div class="shopLeft">
 				<img class="shopImage" src="<?php echo $value["photo"] ?>">

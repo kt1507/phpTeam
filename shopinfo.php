@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>남대 맛집 추천!</title>
-	<link rel="stylesheet" type="text/css" href="shopinfo_layout_mobile.css">
+	<link rel="stylesheet" type="text/css" href="shopinfo_layout.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
