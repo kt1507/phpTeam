@@ -4,57 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>남대 맛집 추천!</title>
-	<style>
-		@font-face {
-		    font-family: 'EarlyFontDiary';
-		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
-		    font-weight: normal;
-		    font-style: normal;
-		}
-		body{
-			font-family: 'EarlyFontDiary';
-		}
-		header{
-			height: 50px;
-			padding: 10px;
-			padding-bottom: 30px;
-			text-align: center;
-		}
-		nav{
-			height: 25px;
-			margin-top: 10px;
-			padding: 15px 0 10px 0;
-			text-align: center;
-			border-top: darkgray 2px solid;
-			border-bottom: darkgray 2px solid;
-		}
-		aside{
-			min-height: 350px;
-			width: 300px;
-			margin: 10px auto;
-			padding: 10px;
-		}
-		footer{
-			height: 50px;
-			margin-top: 10ox;
-			padding: 15px;
-			background-color: dimgray;
-			font-size: 10px;
-			color: whitesmoke;
-		}
-		a{
-			text-decoration: none; /* 링크 밑줄 제거*/
-			color: inherit; /* 링크 색상 제거*/
-		}
-		ul{
-
-		}
-	</style>
+	<link href="foodlist_layout.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 상단 헤더 -->
 	<header>
-		<h1>남대 맛집 추천!</h1>
+		<a href="mainpage.php"><h1>남대 맛집 추천!</h1></a>
 	</header>
 
 	<!-- 메뉴 네비게이션-->
@@ -111,10 +66,12 @@
 			</li>
 		</ul>
 		<?php  }?>
+
+		<button type="button" onClick="location.href='foodlist_mobile.php'">모바일 버전</button>
 	</aside>
 
 	<footer>
-		
+		Develop by 박경태, 이승민, 정우석
 	</footer>
 </body>
 </html>
